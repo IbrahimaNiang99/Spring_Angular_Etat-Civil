@@ -1,0 +1,85 @@
+
+<button [useExistingCss]="true" printSectionId="imprimerActeNaissance" ngxPrint class="btn-success">
+  <i class="fa fa-print"> Imprimer</i>
+</button>
+
+
+<div class="container" id="imprimerActeNaissance">
+
+  <div class="row" style="text-align: center">
+    <h4>REPUBLIQUE DU SENEGAL</h4>
+    <h5>Un Peuple-Un But-Une Foi</h5>
+  </div>
+
+  <div class="row  mt-4" style="font-size: 18px">
+    <div class="col-5" >
+      <strong>REGION : </strong> Dakar<br>
+      <strong>DEPARTEMENT : </strong> Rufisque<br>
+      <strong>COMMUNE DE : </strong> Bargny<br>
+      <strong>CENTRE MUNICIPALE DE : </strong> Bargny
+    </div>
+
+    <div class="col-4 offset-3 text-center mt-1" >
+      <strong>COPIE LITERALE</strong><br>
+      <strong>D'ACTE DE NAISSANCE</strong>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 5%">
+    <div class="col-3">
+      <strong class="h5">Acte N° : </strong> {{enfant.numActe}} <br>
+      <strong>DU REGISTRE : </strong> {{enfant.registre.annee}}
+    </div>
+    <div class="col-9">
+      <div class="" style="font-size: 18px">
+        <strong>RENSEIGNEMENT SUR L'ENFANT</strong><br>
+        Prénom(s) : <strong> {{enfant.declare.prenom}}</strong>
+        Nom : <strong> {{enfant.declare.nom}} </strong>  <br>
+        Sexe : <strong> {{enfant.declare.sexe}} </strong>  <br>
+        Date de Naissance né(e) :<strong> le {{enfant.declare.dateNaissance | date: ("dd/MM/yyyy")}}</strong> <br>
+        Lieu de Naissance : <strong> {{enfant.declare.lieuNaissance}}</strong>
+        à <strong> 15 </strong> Heure
+        <strong> 30 </strong> Minutes <br>
+        Formation Sanitaire :<strong> {{enfant.formationsanitaire.libelle}}  </strong> <br><br>
+
+      </div>
+      <div class="" style="font-size: 18px">
+        <strong class="h4">RENSEIGNEMENT SUR LE PERE</strong><br>
+        Prénom(s) : <strong> {{enfant.pereEnfant.prenom}} </strong>
+        Nom : <strong> {{enfant.pereEnfant.nom}} </strong>  <br>
+        Date de Naissance né le : <strong>  {{enfant.pereEnfant.dateNaissance | date: ("dd/MM/yyyy")}} </strong><br>
+        Lieu de Naissance : <strong> {{enfant.pereEnfant.lieuNaissance}} </strong><br>
+        Profession : <strong>  {{enfant.pereEnfant.profession}}  </strong>  <br>
+        Domicile : <strong>  {{enfant.pereEnfant.adresse}}  </strong>  <br><br>
+
+      </div>
+      <div class="" style="font-size: 18px">
+        <strong class="h4">RENSEIGNEMENT SUR LA MERE</strong><br>
+        Prénom(s) : <strong> {{enfant.mereEnfant.prenom}}</strong>
+        Nom : <strong> {{enfant.mereEnfant.nom}}</strong>  <br>
+        Date de Naissance née le : <strong> {{enfant.mereEnfant.dateNaissance | date: ("dd/MM/yyyy")}}</strong><br>
+        Lieu de Naissance :<strong> {{enfant.mereEnfant.lieuNaissance}}</strong> <br>
+        Profession : <strong> {{enfant.mereEnfant.profession}} </strong>  <br>
+        Domicile : <strong>  {{enfant.mereEnfant.adresse}} </strong>  <br><br>
+
+        Dresse-le : <strong>.........{{date | date: ("dd/MM/yyyy")}}...............</strong>  <br>
+        Par Nous : <strong>...........{{enfant.centre.libelle}}............</strong>  <br>
+        Officier de l'Etat-Civil du centre de <strong> {{enfant.centre.libelle}}</strong>............................... <br>
+        .....................<strong>de</strong>............................... <br>
+        <strong class="h5">Sur la déclaration faite par le : </strong> .......................... <br>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-4 offset-7" style="text-align: center">
+      <strong>COPIE CONFORME </strong> <br>
+      <strong>Faite à Bargny le {{date | date: ("dd/MM/yyyy")}}</strong> <br>
+      <strong  class="h4">L'Officier de l'Etat-Civil</strong>
+    </div>
+  </div>
+
+</div>
+
+

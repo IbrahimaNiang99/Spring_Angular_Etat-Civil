@@ -1,0 +1,48 @@
+<div class="container" >
+  <div class="row" >
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header  bg-gradient-primary " >
+          <span class="span card-title h4 text-white">Liste des actes de mariage</span>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-3 offset-9">
+            <a href="" [routerLink]="['/home/mariage/declaration']" class="btn btn-success mb-2" style="color: white">
+              <i class="fa fa-plus"> Nouvelle déclaration</i>
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive text-center">
+            <table id="zero_config" class="table table-striped table-bordered">
+              <thead class="h5">
+              <tr>
+                <th>Régistre</th>
+                <th>Numéro</th>
+                <th>Epoux</th>
+                <th>Epouse</th>
+                <th>Date de mariage</th>
+                <th>Lieu de mariage</th>
+                <th>Certificat</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>1999</td>
+                <td>444</td>
+                <td>Ibrahima Niang</td>
+                <td>Khady Ndiaye</td>
+                <td>03/12/2022</td>
+                <td>Bargny</td>
+                <td>
+                  <a [routerLink]="['/home/mariage/pdfMariage']"  class="btn btn-info"><i class="fa fa-eye"></i></a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

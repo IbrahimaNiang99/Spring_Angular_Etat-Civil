@@ -1,0 +1,113 @@
+<div class="container" >
+  <div class="row" >
+    <div class="card">
+      <div class="card-header  bg-gradient-primary " >
+        <span class="span card-title h4 text-white">Centre</span>
+      </div>
+
+      <div class="card-body">
+        <div class="row mt-4">
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-md-7">
+                <h2>Liste des centres</h2>
+              </div>
+              <div class="col-md-4">
+                <input type="text" [(ngModel)]="centreSh" placeholder="Rechercher">
+              </div>
+            </div>
+            <mat-card>
+              <mat-card-content>
+                <div class="table-responsive text-center">
+                  <table id="zero_config" class="table table-striped table-bordered">
+                    <thead class="h5">
+                    <tr>
+                      <th hidden>id</th>
+                      <th>Code</th>
+                      <th>Libellé</th>
+                      <th>Région</th>
+                      <th>Département</th>
+                      <th>C. locale</th>
+                      <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let c of centre | filter:centreSh">
+                      <td hidden>{{c.id}}</td>
+                      <td>{{c.codeCentre}}</td>
+                      <td>{{c.libelle}}</td>
+                      <td>{{c.region}}</td>
+                      <td>{{c.departement}}</td>
+                      <td>{{c.collectiviteLocale}}</td>
+                      <td>
+                        <a  class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                        <a href="#" class="btn btn-danger m-l-5"><i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <div class="col-md-4">
+            <h2>Ajouter un centre</h2>
+            <mat-card>
+              <mat-card-content>
+
+                <div class="row">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Code</mat-label>
+                    <input name="codeCentre" [(ngModel)]="newCentre.codeCentre" matInput type="number" placeholder="Code" >
+                  </mat-form-field>
+                </div>
+
+                <div class="row">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Libellé</mat-label>
+                    <input name="libelle" [(ngModel)]="newCentre.libelle" matInput type="text" placeholder="Libellé" >
+                  </mat-form-field>
+                </div>
+
+                <div class="row">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Région</mat-label>
+                    <mat-select placeholder="type" [(ngModel)]="newCentre.region" name="collectiviteLocale">
+                      <mat-option value="Dakar">Dakar</mat-option>
+                      <mat-option value="Thies">Thies</mat-option>
+                      <mat-option value="Louga">Louga</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="row">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Département</mat-label>
+                    <mat-select placeholder="type" [(ngModel)]="newCentre.departement" name="departement">
+                      <mat-option value="Rufisque">Rufisque</mat-option>
+                      <mat-option value="">Tardive</mat-option>
+                      <mat-option value="">Jugement</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="row">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Collectivité locale</mat-label>
+                    <mat-select placeholder="type" [(ngModel)]="newCentre.collectiviteLocale" name="collectiviteLocale">
+                      <mat-option value="collectiviteLocale">Normale</mat-option>
+                      <mat-option value="">Tardive</mat-option>
+                      <mat-option value="">Jugement</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </mat-card-content>
+              <div>
+                <span class="m-lg-3"><button (click)="add()" class="btn btn-success">Ajouter</button></span>
+                <span class="m-lg-4"><button type="reset" class="btn btn-danger">Effacer</button></span>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

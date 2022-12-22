@@ -1,0 +1,288 @@
+<div class="container" >
+  <div class="card">
+    <div class="card-header card-title bg-gradient-primary ">
+      <div class="row h4 text-white">
+        <span>Renseignements sur l'acte de naissance numéro {{enfant.numActe}} du régistre {{enfant.registre.annee}} fait le {{enfant.dateDeclaration | date: ("dd/MM/yyyy")}}</span>
+      </div>
+    </div>
+
+    <div class="card-body mt-5">
+      <div class="row">
+        <div class="col-md-4 card">
+          <div class="card-title bg-gradient-primary text-white h5">Enfant</div>
+          <div class="row mt-3">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Prénom:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.declare.prenom}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Nom:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.declare.nom}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Date de naissance:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.declare.dateNaissance | date: ("dd/MM/yyyy")}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Heure de naissance:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.declare.heureNaissance}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Lieu de naissance:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.declare.lieuNaissance}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 card">
+          <div class="card-title bg-gradient-primary text-white h5">Père de l'enfant</div>
+          <div class="row mt-3">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Prénom:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.pereEnfant.prenom}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Nom:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.pereEnfant.nom}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Date de naissance:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.pereEnfant.dateNaissance}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Heure de naissance:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.pereEnfant.heureNaissance}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Lieu de naissance:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.pereEnfant.lieuNaissance}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 card">
+          <div class="card-title bg-gradient-primary text-white h5">Mère de l'enfant </div>
+          <div class="row mt-3">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Prénom:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.mereEnfant.prenom}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Nom:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.mereEnfant.nom}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Date de naissance:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.mereEnfant.dateNaissance}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Heure de naissance:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.mereEnfant.heureNaissance}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Lieu de naissance:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.mereEnfant.lieuNaissance}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-md-4 card">
+          <div class="card-title bg-gradient-primary text-white h5">Centre</div>
+          <div class="row mt-3">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Code centre:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.centre.codeCentre}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Région:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.centre.region}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Département:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.centre.departement}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Collectivité locale:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.centre.collectiviteLocale}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Libele:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.centre.libelle}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 card">
+          <div class="card-title bg-gradient-primary text-white h5">Formation Sanitaire</div>
+          <div class="row mt-3">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Code:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.formationsanitaire.codeFormation}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Libele:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.formationsanitaire.libelle}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Type F sanitaire:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.formationsanitaire.typeFormation}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 card">
+          <div class="card-title bg-gradient-primary text-white h5">Déclarant</div>
+          <div class="row mt-3">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Prénom:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.declarant.prenom}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Nom:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.declarant.nom}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Date de naissance:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.declarant.dateNaissance | date: ("dd/MM/yyyy")}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Heure de naissance:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.declarant.heureNaissance}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Lieu de naissance:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.declarant.lieuNaissance}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5" *ngIf="enfant.jugement.id">
+        <div class="col-md-4 card">
+          <div class="card-title bg-gradient-primary text-white h5">Jugement</div>
+          <div class="row mt-3">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Numéro:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.jugement.numJugement}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Date jugement:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.jugement.dateJugement | date: ("dd/MM/yyyy")}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5" style="text-align: right">
+              <strong>Lieu du jugement:</strong>
+            </div>
+            <div class="col-md-7">
+              <span>{{enfant.jugement.lieuJugement}}</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

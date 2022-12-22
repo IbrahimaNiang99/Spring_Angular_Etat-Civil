@@ -1,0 +1,54 @@
+<div class="container" >
+  <div class="row" >
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header  bg-gradient-primary " >
+          <span class="span card-title h4 text-white">Liste des actes de naissance à imprimer</span>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-3 offset-9">
+            <a href="" [routerLink]="['/home/naissance/declaration']" class="btn btn-success mb-2" style="color: white">
+              <i class="fa fa-plus"> Nouvelle déclaration</i>
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive text-center">
+            <table id="zero_config" class="table table-striped table-bordered">
+              <thead class="h5">
+              <tr>
+                <th>Régistre</th>
+                <th>Numéro</th>
+                <th>Prénom Nom</th>
+                <th>Date naissance</th>
+                <th>Lieu naissance</th>
+                <th>Acte</th>
+                <th>Bulletin</th>
+                <th>Extrait</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let n of listeNaiss | filter:naissanceRch">
+                <td>{{n.registre.annee}}</td>
+                <td>{{n.numActe}}</td>
+                <td>{{n.declare.prenom}} {{n.declare.nom}}</td>
+                <td>{{n.declare.dateNaissance | date: ("dd/MM/yyyy")}}</td>
+                <td>{{n.declare.lieuNaissance }}</td>
+                <td>
+                  <a (click)="pdfActe(n.id)"  class="btn btn-info"><i class="fa fa-print"></i></a>
+                </td>
+                <td>
+                  <a (click)="pdfBulletin(n.id)" class="btn btn-info m-l-5"><i class="fa fa-print"></i></a>
+                </td>
+                <td>
+                  <a (click)="pdfExtrait(n.id)" class="btn btn-info m-l-5"><i class="fa fa-print"></i></a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

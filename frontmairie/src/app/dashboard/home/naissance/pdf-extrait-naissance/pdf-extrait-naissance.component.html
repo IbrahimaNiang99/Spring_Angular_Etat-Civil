@@ -1,0 +1,264 @@
+<div class="row">
+  <div class="col-md-2 h4" >
+    <button [useExistingCss]="true" style="color: white" class="btn btn-success"  printSectionId="imprimerExtraitNaissance" ngxPrint>
+      <span class="h4"><i class="fa fa-print"> Imprimer</i></span>
+    </button>
+  </div>
+</div>
+
+<div class="container" id="imprimerExtraitNaissance">
+  <div class="row" style="margin-left: 1%; margin-right: 1%">
+    <div class="col-6 text-center" style="border: 2px solid">
+      <div class="mt-2 mb-2 h4">
+        <strong>REGION DE DAKAR </strong> <br>
+        <strong>DEPARTEMENT DE RUFISQUE </strong> <br>
+        <strong>COMMUNE DE BARGNY </strong> <br>
+      </div>
+    </div>
+    <div class="col-6 text-center" style="border: 2px solid ; border-left: none">
+      <div class="mt-1 mb-2">
+        <h4>REPUBLIQUE DU SENEGAL</h4>
+        <h5>Un Peuple-Un But-Une Foi</h5>
+        <p>___________________________</p>
+        <h1>ETAT - CIVIL</h1>
+        <strong>COMMUNE DE BARGNY </strong>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-left: 1%; margin-right: 1%">
+    <div class="col-8" style="border: 2px solid; border-top: none; border-right: none">
+      <div class="row mt-1">
+        <div class="col-12">
+          <h6>EXTRAIT DU REGISTRE DES ACTES DE NAISSANCES</h6>
+        </div>
+      </div>
+      <div class="row mt-1 mb-4">
+        <div class="col-12" style="font-size: 17px" >
+          <span>Pour l'année : </span>
+          <strong>... deux mille vingt deux</strong><br><br>
+          <span>N° dans le régistre : </span>
+          <strong>deux mille vingt deux</strong>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 text-center" style="border: 2px solid; border-top: none">
+      <div class="mt-1 mb-1">
+        <h4>Année</h4>
+        {{enfant.registre.annee}} <br><br>
+        <strong>N° : </strong>{{enfant.numActe}}<br>
+        <p>(N° dans le régistre en chiffre)</p>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-left: 1%; margin-right: 1%; border: 2px solid; border-top: none; font-size: 16px" >
+    <div class="mt-2">
+      <span>Le : </span>
+      <strong>..... trois decembre deux mille vingt deux .....</strong><br>
+      <div class="row">
+        <div class="col-12" >
+          <span>à</span>
+          <strong>..... dix .....</strong>
+          <span> heure(s) </span>
+          <strong >..... cinquante .....</strong>
+          <span> minute(s) </span>
+          <span >est né(e) à </span>
+          <strong>..... {{enfant.declare.lieuNaissance}}.....</strong>
+        </div>
+        <div class="col-2">
+        </div>
+      </div>
+      <br>
+
+      <span> Un enfant de sexe </span>
+      <strong>..... {{enfant.declare.sexe}} .....</strong><br><br>
+
+      <div class="row ">
+        <div class="col-6">
+          <span> PRENOM(S) : </span>
+          <strong>..... {{enfant.declare.prenom}} ..... </strong>
+        </div>
+        <div class="col-6">
+          <span > NOM DE FAMILLE : </span>
+          <strong> ..... {{enfant.declare.nom}} ..... </strong>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-10">
+          <span> DE PRENOM(S) DU PERE : </span>
+          <strong>..... {{enfant.pereEnfant.prenom}} ..... </strong>
+        </div>
+        <div class="col-2">
+          <span> ET DE </span>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-12">
+          <span>PRENOM(S) DE LA MERE : </span>
+          <strong> {{enfant.mereEnfant.prenom}}..</strong>
+
+          <span>NOM DE FAMILLE DE LA MERE :</span>
+          <strong>{{enfant.mereEnfant.nom}}</strong>
+        </div>
+      </div>
+      <br>
+      <h5>pays de naissance pour les naissances à l'étranger (3) </h5>
+    </div>
+  </div>
+  <div class="row" style="margin-left: 1%; margin-right: 1%; border: 2px solid; border-top: none; font-size: 16px">
+    <div class="col-3 text-center" style="border-right: 2px solid">
+      <div class="mt-1">
+        <span>JUGEMENT</span><br>
+        <span>D'AUTORISATION</span><br>
+        <span>D'INSCRIPTION</span>
+      </div>
+    </div>
+    <div class="col-7 ml-2" style="border-right: 2px solid;">
+      <div class="row mt-1">
+        <div class="col-12">
+          <span>Délivré par le juge de paix de : </span>
+          <strong>...............</strong>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <span>Le : </span>
+          <strong>.......  </strong>
+          <span>....... </span>
+          <strong>....... </strong><br>
+          <span>.......</span>
+          <strong>....... </strong><br>
+          <span>.......</span>
+          <strong>.......</strong>
+          <span>sur le régistre des Actes de naissance de l'année</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-2" >
+      <div class="mt-1">
+        <span>An : </span>
+        <span class="h5">{{enfant.registre.annee}}</span><br>
+        <span>(N° dans le régistre en chiffre)</span>
+        <div class="mt-2">
+          <span>An : </span>
+          <strong>{{enfant.registre.annee}}</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-left: 1%; margin-right: 1%; border: 2px solid; border-top: none; font-size: 15px">
+    <div class="col-6 mt-2">
+      <span>EXTRAIT DELIVRE PAR LA CENTRE DE </span>
+    </div>
+    <div class="col-6 mt-2 mb-2">
+      <strong>POUR EXTRAIT CERTIFIE CONFORME</strong><br><br>
+      A Bargny le
+      <strong>... {{date | date: ("dd/MM/yyyy")}} ...</strong><br>
+      <div class="row text-center">
+        <span>L'Officier d'Etat Civil soussigné</span>
+      </div>
+      <span>Prénom(s) et nom </span>
+      <strong>...Ibrahima Niang </strong>
+    </div>
+    <div class="mb-2">(1) (2) (3) Notes des inscriptions marginales en verso</div>
+  </div>
+
+  <div class="row" style="margin-left: 1%; margin-right: 1%; border: 2px solid; border-top: none;">
+    <div class="col-2 mt-1">
+      <h4>RESERVE</h4>
+    </div>
+
+    <div class="col-10 mt-2 mb-3">
+      <div class="row">
+        <div class="col-1">
+          <span class="carreExtrait"><span class="espacement">3</span></span>
+          <span class="dernierCarre"><span class="espacement">0</span></span>
+        </div>
+        <div class="col-1">
+          <span class="carreExtrait"><span class="espacement"></span></span>
+          <span class="carreExtrait"><span class="espacement"></span></span>
+          <span class="dernierCarre"><span class="espacement"></span></span><br>
+          DEP
+        </div>
+        <div class="col-1">
+          <span class="carreExtrait"><span class="espacement"></span></span>
+          <span class="dernierCarre"><span class="espacement"></span></span><br>
+          CL
+        </div>
+        <div class="col-1">
+          <span class="carreExtrait"><span class="espacement"></span></span>
+          <span class="carreExtrait"><span class="espacement"></span></span>
+          <span class="dernierCarre"><span class="espacement"></span></span><br>
+          CEC
+        </div>
+        <div class="col-2">
+          <span class="carreExtrait"><span class="espacement"></span></span>
+          <span class="carreExtrait"><span class="espacement"></span></span>
+          <span class="carreExtrait"><span class="espacement"></span></span>
+          <span class="carreExtrait"><span class="espacement"></span></span>
+          <span class="carreExtrait"><span class="espacement"></span></span>
+          <span class="dernierCarre"><span class="espacement"></span></span><br>
+          DN
+        </div>
+        <div class="col-1">
+          <span class="dernierCarre"><span class="espacement"></span></span><br>
+          S
+        </div>
+        <div class="col-1">
+          <span class="carreExtrait"><span class="espacement"></span></span>
+          <span class="carreExtrait"><span class="espacement"></span></span>
+          <span class="dernierCarre"><span class="espacement"></span></span><br>
+          PN
+        </div>
+        <div class="col-1">
+          <span class="carreExtrait"><span class="espacement"></span></span>
+          <span class="carreExtrait"><span class="espacement"></span></span>
+          <span class="dernierCarre"><span class="espacement"></span></span><br>
+          JDP
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="row mt-5" style="margin-left: 1%; margin-right: 1%; border: 2px solid;">
+    <div class="row text-center">
+      <u class="h1 mt-2">MENTIONS MARGINALES</u>
+    </div>
+    <br><br>
+    <div class="row text-center">
+      <p>.............................................................................................................................................................................................</p>
+      <p>.............................................................................................................................................................................................</p>
+      <p>.............................................................................................................................................................................................</p>
+      <p>.............................................................................................................................................................................................</p>
+      <p>.............................................................................................................................................................................................</p>
+      <p>.............................................................................................................................................................................................</p>
+      <p>.............................................................................................................................................................................................</p>
+      <p>.............................................................................................................................................................................................</p>
+      <p>.............................................................................................................................................................................................</p>
+      <p>.............................................................................................................................................................................................</p>
+    </div>
+  </div>
+  <div class="row mt-5" style="margin-left: 1%; margin-right: 1%; border: 2px solid; font-size: 18px">
+    <div class="row text-center">
+      <u class="h1 mt-2">Notes</u>
+    </div>
+    <br><br>
+    <div class="row mt-5">
+      <p>(1) Le Centre d'Etat-Civil est dans les cas le centre de création de l'acte qui tient ou qui a tenu le registre des actes de naissance dont l'extrait est tiré.</p>
+      <br>
+      <p>En particulier quand un Centre Principal delivre un extrait tiré d'un registre d'un Centre secondaire, il doit porter la désignation de ce Centre Secondaire la sienne propre.</p>
+      <br>
+      <p>Toutefois les mentions de la certification de conformité et le sceau sont ceux de l'Officier d'Etat-Civil du Centre Principal qui établit l'extrait.</p>
+      <br>
+      <p>(2) Quand un acte de naissance résulte de la transcription d'un jugemnet d'autorisation d'inscription (ex-jugement supplétif), l'année à porter est celle de l'inscription, c'est-à-dire l'année du registre, et non celle de la naissance.</p>
+      <br>
+      <p>(3) La mention du pays de naissance pour les naissances à l'étranger n'intéresse que le Centre principal de la 1ère Circonscription urbaine du Cap-Vert et les postes Diplomatiques et Consulaires (art. 44 du Code de la Famille).</p>
+      <br>
+      <p>(4) Conserver la case utile</p><br>
+
+    </div>
+  </div>
+
+</div>

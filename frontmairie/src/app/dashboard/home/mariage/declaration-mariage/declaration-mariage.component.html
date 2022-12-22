@@ -1,0 +1,337 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header  bg-gradient-primary ">
+      <h2 class="text-white">Déclaration de mariage </h2>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field appearance="outline">
+            <mat-select placeholder="Année" [(ngModel)]="newMariage.registre" >
+              <mat-option *ngFor="let r of allRegistre" value="{{ r.id }}" name="anneeRegistre" >{{ r.annee }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field appearance="outline">
+            <mat-label>Numéro dans le régistre</mat-label>
+            <input name="numActe" [(ngModel)]="newMariage.numActe" matInput type="number" >
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field appearance="outline">
+            <mat-label>Date de déclaration</mat-label>
+            <input name="dateDeclaration" matInput [(ngModel)]="newMariage.dateDeclaration" type="date">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field appearance="outline">
+            <mat-label>Date du mariage</mat-label>
+            <input name="" matInput  type="date" >
+          </mat-form-field>
+        </div>
+        <!--div class="col-md-4">
+          <mat-form-field appearance="fill">
+            <mat-label>Type de déclaration</mat-label>
+            <mat-select>
+              <mat-option value="one">First option</mat-option>
+              <mat-option value="two">Second option</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div-->
+        <div class="col-md-4">
+          <mat-form-field appearance="fill">
+            <mat-label>Lieu du mariage</mat-label>
+            <input matInput>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field appearance="fill">
+            <mat-label>Régime matrimoniale</mat-label>
+            <mat-select [(ngModel)]="newMariage.regime" name="regime">
+              <mat-option value="Polygamie">Polygamie</mat-option>
+              <mat-option value="Monogamie">Monogamie</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field appearance="fill">
+            <mat-label>Option</mat-label>
+            <mat-select name="option" [(ngModel)]="newMariage.option">
+              <mat-option value="Biens Communs">Biens Communs</mat-option>
+              <mat-option value="Séparation des biens">Séparation des biens</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field appearance="fill">
+            <mat-label>Montant du dot</mat-label>
+            <input matInput name="dot" [(ngModel)]="newMariage.dot" type="number">
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid mt-1">
+  <div class="card">
+    <mat-vertical-stepper>
+      <mat-step>
+          <ng-template matStepLabel>Epoux</ng-template>
+            <h3>Informations sur l'époux</h3>
+            <div>
+              <span>
+                <mat-form-field appearance="fill">
+                  <mat-label>Prénom(s)</mat-label>
+                  <input matInput type="text" name="prenomEpoux" [(ngModel)]="newMariage.epoux.prenom">
+                </mat-form-field>
+              </span>
+              <span class="m-lg-4">
+                <mat-form-field appearance="fill">
+                  <mat-label>Nom</mat-label>
+                  <input matInput type="text" name="nomEpoux" [(ngModel)]="newMariage.epoux.nom">
+                </mat-form-field>
+              </span>
+              <span>
+                <mat-form-field appearance="fill">
+                  <mat-label>Date de naissance</mat-label>
+                  <input matInput type="date" name="dateNaissEpoux" [(ngModel)]="newMariage.epoux.dateNaissance">
+                </mat-form-field>
+              </span>
+              <span class="m-lg-4">
+                <mat-form-field appearance="fill">
+                  <mat-label>Lieu de naissance</mat-label>
+                  <input matInput type="text" name="lieuNaissEpoux" [(ngModel)]="newMariage.epoux.lieuNaissance">
+                </mat-form-field>
+              </span>
+              <span >
+                <mat-form-field appearance="fill">
+                  <mat-label>Numéro CNI</mat-label>
+                  <input matInput name="cniEpoux" [(ngModel)]="newMariage.epoux.CNI">
+                </mat-form-field>
+              </span>
+            </div>
+            <div class="row">
+                <mat-card>
+                  <mat-card-header class="bg-gradient-primary h5 text-white">Informations sur le père de l'époux</mat-card-header>
+                  <mat-card-content>
+                    <div class="mt-3">
+                      <span>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Prénom(s)</mat-label>
+                          <input matInput type="text" name="prenomPereEpoux" [(ngModel)]="newMariage.pereEpoux.prenom">
+                        </mat-form-field>
+                      </span>
+                      <span class="m-lg-5">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Nom</mat-label>
+                          <input matInput type="text" name="nomPereEpoux" [(ngModel)]="newMariage.pereEpoux.nom">
+                        </mat-form-field>
+                      </span>
+                      <span>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Numéro CNI</mat-label>
+                          <input matInput type="number" name="cniPereEpoux" [(ngModel)]="newMariage.pereEpoux.CNI">
+                        </mat-form-field>
+                      </span>
+                      </div>
+                  </mat-card-content>
+                </mat-card>
+            </div>
+        <div class="row">
+          <mat-card>
+            <mat-card-header class="bg-gradient-primary h5 text-white">Informations sur la mère de l'époux</mat-card-header>
+            <mat-card-content>
+              <div class="mt-3">
+                      <span>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Prénom(s)</mat-label>
+                          <input matInput type="text" name="prenomMereEpoux" [(ngModel)]="newMariage.mereEpoux.prenom">
+                        </mat-form-field>
+                      </span>
+                <span class="m-lg-5">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Nom</mat-label>
+                          <input matInput type="text" name="nomMereEpoux" [(ngModel)]="newMariage.mereEpoux.nom">
+                        </mat-form-field>
+                      </span>
+                <span>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Numéro CNI</mat-label>
+                          <input matInput name="cniMereEpoux" [(ngModel)]="newMariage.mereEpoux.CNI">
+                        </mat-form-field>
+                      </span>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+          <button class="btn btn-info mt-4"  mat-button matStepperNext>Suivant</button>
+      </mat-step>
+      <mat-step>
+          <ng-template matStepLabel>Epouse</ng-template>
+            <h3>Informations sur l'épouse</h3>
+            <div>
+              <span>
+                <mat-form-field appearance="fill">
+                  <mat-label>Prénom(s)</mat-label>
+                  <input matInput name="prenomEpouse" type="text" [(ngModel)]="newMariage.epouse.prenom">
+                </mat-form-field>
+              </span>
+              <span class="m-lg-4">
+                <mat-form-field appearance="fill">
+                  <mat-label>Nom</mat-label>
+                  <input matInput name="nomEpouse" type="text" [(ngModel)]="newMariage.epouse.nom">
+                </mat-form-field>
+              </span>
+              <span>
+                <mat-form-field appearance="fill">
+                  <mat-label>Date de naissance</mat-label>
+                  <input matInput type="date" name="dateNaissEpouse" [(ngModel)]="newMariage.epouse.dateNaissance">
+                </mat-form-field>
+              </span>
+              <span class="m-lg-4">
+                <mat-form-field appearance="fill">
+                  <mat-label>Lieu de naissance</mat-label>
+                  <input matInput name="lieuNaissEpouse" type="text" [(ngModel)]="newMariage.epouse.lieuNaissance">
+                </mat-form-field>
+              </span>
+              <span >
+                <mat-form-field appearance="fill">
+                  <mat-label>Numéro CNI</mat-label>
+                  <input matInput name="cniEpouse" type="number" [(ngModel)]="newMariage.epouse.CNI">
+                </mat-form-field>
+              </span>
+            </div>
+            <div class="row">
+                <mat-card>
+                  <mat-card-header class="bg-gradient-primary h5 text-white">Informations sur le père de l'épouse</mat-card-header>
+                  <mat-card-content>
+                    <div class="mt-3">
+                      <span>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Prénom(s)</mat-label>
+                          <input matInput name="prenomPereEpouse" type="text" [(ngModel)]="newMariage.pereEpouse.prenom">
+                        </mat-form-field>
+                      </span>
+                      <span class="m-lg-5">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Nom</mat-label>
+                          <input matInput name="nomPereEpouse" type="text" [(ngModel)]="newMariage.pereEpouse.nom">
+                        </mat-form-field>
+                      </span>
+                      <span>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Numéro CNI</mat-label>
+                          <input matInput name="cniPereEpouse" type="number" [(ngModel)]="newMariage.pereEpouse.CNI">
+                        </mat-form-field>
+                      </span>
+                      </div>
+                  </mat-card-content>
+                </mat-card>
+            </div>
+        <div class="row">
+          <mat-card>
+            <mat-card-header class="bg-gradient-primary h5 text-white">Informations sur la mère de l'épouse</mat-card-header>
+            <mat-card-content>
+              <div class="mt-3">
+                      <span>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Prénom(s)</mat-label>
+                          <input matInput name="prenomMereEpouse" type="text" [(ngModel)]="newMariage.mereEpouse.prenom">
+                        </mat-form-field>
+                      </span>
+                <span class="m-lg-5">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Nom</mat-label>
+                          <input matInput name="nomMereEpouse" type="text" [(ngModel)]="newMariage.mereEpouse.nom">
+                        </mat-form-field>
+                      </span>
+                <span>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Numéro CNI</mat-label>
+                          <input matInput name="cniMereEpouse" type="number" [(ngModel)]="newMariage.mereEpouse.CNI">
+                        </mat-form-field>
+                      </span>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <button class="btn btn-primary" style="margin-top: 3% " mat-button matStepperPrevious>Precédent</button>
+        <button class="btn btn-info" style="margin-top: 3% "  mat-button matStepperNext>Suivant</button>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Mensions</ng-template>
+
+        <button class="btn btn-primary" style="margin-top: 3% " mat-button matStepperPrevious>Precédent</button>
+        <button class="btn btn-info" style="margin-top: 3% "  mat-button matStepperNext>Suivant</button>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Témoins</ng-template>
+          <div class="">
+            <div class="row">
+              <mat-card>
+                <mat-card-header class="bg-gradient-primary h5 text-white">Informations sur le témoin l'époux</mat-card-header>
+                <mat-card-content>
+                  <div class="mt-3">
+                      <span>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Prénom(s)</mat-label>
+                          <input matInput name="prenomTemEpoux" type="text" [(ngModel)]="newMariage.temoinEpoux.prenom">
+                        </mat-form-field>
+                      </span>
+                    <span class="m-lg-5">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Nom</mat-label>
+                          <input matInput name="nomTemEpoux" type="text" [(ngModel)]="newMariage.temoinEpoux.nom">
+                        </mat-form-field>
+                      </span>
+                    <span>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Numéro CNI</mat-label>
+                          <input matInput name="cniTemEpoux" type="number" [(ngModel)]="newMariage.temoinEpoux.CNI">
+                        </mat-form-field>
+                      </span>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+            </div>
+            <div class="row">
+              <mat-card>
+                <mat-card-header class="bg-gradient-primary h5 text-white">Informations sur le témoin de l'épouse</mat-card-header>
+                <mat-card-content>
+                  <div class="mt-3">
+                      <span>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Prénom(s)</mat-label>
+                          <input matInput name="prenomTemEpouse" type="text" [(ngModel)]="newMariage.temoinEpouse.prenom">
+                        </mat-form-field>
+                      </span>
+                    <span class="m-lg-5">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Nom</mat-label>
+                          <input matInput name="nomTemEpouse" type="text" [(ngModel)]="newMariage.temoinEpouse.nom">
+                        </mat-form-field>
+                      </span>
+                    <span>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Numéro CNI</mat-label>
+                          <input matInput name="cniTemEpouse" type="text" [(ngModel)]="newMariage.temoinEpouse.CNI">
+                        </mat-form-field>
+                      </span>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        <button class="btn btn-primary" style="margin-top: 3% " mat-button matStepperPrevious>Precédent</button>
+        <button class="btn btn-success" (click)="add()" style="margin-left: 2px; margin-top: 3% ">Valider</button>
+      </mat-step>
+    </mat-vertical-stepper>
+  </div>
+</div>

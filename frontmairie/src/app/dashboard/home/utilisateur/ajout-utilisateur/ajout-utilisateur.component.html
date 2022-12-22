@@ -1,0 +1,80 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header  bg-gradient-primary ">
+      <h2 class="text-white">Formulaire d'ajout d'utilisateur</h2>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="" style="font-size: 250px">
+            <i class="fa fa-user-check"></i>
+          </div>
+        </div>
+        <div class="col-md-1 offset-1">
+          <span style="border-left: 2px solid #000; display: inline-block;height: 100%; margin-left: 50px"></span>
+        </div>
+        <div class="col-md-5 ">
+          <form>
+            <div class="row">
+              <mat-form-field appearance="outline">
+                <mat-label>Prénom(s) et Nom</mat-label>
+                <input name="name" [(ngModel)]="newUser.name" class="form-control" matInput type="text" placeholder="prénom et nom" >
+              </mat-form-field>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Adresse</mat-label>
+                  <input name="adresse" [(ngModel)]="newUser.adresse" class="form-control" matInput type="text" placeholder="adresse" >
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field style="margin-left: 30px" appearance="outline">
+                  <mat-label>Nom d'utilisateur</mat-label>
+                  <input name="userName" [(ngModel)]="newUser.userName" class="form-control" matInput type="text" placeholder="Nom d'utilisateur" >
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input name="email" [(ngModel)]="newUser.email" class="form-control" matInput type="email" placeholder="Email" >
+              </mat-form-field>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Téléphone</mat-label>
+                  <input name="tel" [(ngModel)]="newUser.telephone" class="form-control" matInput type="number" placeholder="prénom" >
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field appearance="outline" style="margin-left: 30px">
+                  <mat-label>Etat</mat-label>
+                  <mat-select placeholder="type">
+                    <mat-option value="1">Activé</mat-option>
+                    <mat-option value="0">Bloqué</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <mat-form-field appearance="outline">
+                <mat-label>CNI</mat-label>
+                <input name="cni" [(ngModel)]="newUser.cni" class="form-control" matInput type="number" placeholder="N° Carte nationale d'identité" >
+              </mat-form-field>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <button (click)="add()" class="btn btn-success">Ajouter</button>
+              </div>
+              <div class="col-md-3">
+                <button type="reset" class="btn btn-danger">Annuler</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="container" >
+  <div class="row" >
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header  bg-gradient-primary " >
+          <span class="span card-title h4 text-white">Liste des actes de naissance</span>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-1 mt-1" style="margin-left: 30px">
+            <input type="text" placeholder="Rechercher" [(ngModel)]="naissanceRch">
+          </div>
+          <div class="col-md-3 offset-7">
+            <a href="" [routerLink]="['/home/naissance/declaration']" class="btn btn-success mb-2" style="color: white">
+              <i class="fa fa-plus"> Nouvelle déclaration</i>
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive text-center">
+            <table id="zero_config" class="table table-striped table-bordered">
+              <thead class="h5">
+              <tr>
+                <th>Régistre</th>
+                <th>Numéro</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Date naissance</th>
+                <th>Lieu naissance</th>
+                <th>déclaration</th>
+                <th>Détails</th>
+                <th>Actions</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let n of listeNaiss | filter:naissanceRch">
+                <td>{{n.registre.annee}}</td>
+                <td>{{n.numActe}}</td>
+                <td>{{n.declare.prenom}}</td>
+                <td>{{n.declare.nom}}</td>
+                <td>{{n.declare.dateNaissance | date: ("dd/MM/yyyy")}}</td>
+                <td>{{n.declare.lieuNaissance }}</td>
+                <td>Normale</td>
+                <td>
+                  <button (click)="details(n.id)" class="btn btn-info"><i class="fa fa-eye"></i></button>
+                </td>
+                <td>
+                  <a  class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                  <a href="#" class="btn btn-danger m-l-5"><i class="fa fa-trash"></i></a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

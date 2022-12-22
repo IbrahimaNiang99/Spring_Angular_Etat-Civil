@@ -1,0 +1,270 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header  bg-gradient-primary ">
+      <h2 class="text-white">Déclaration de naissance </h2>
+    </div>
+        <div class="card-body">
+          <div class="row">
+            <h3>Renseignement sur l'enfant</h3>
+          </div>
+          <div class="row">
+            <div class="col-md-5">
+              <div class="row">
+                <mat-form-field class="col-md-5 ">
+                    <mat-select placeholder="Année" [(ngModel)]="newNaissance.registre.id" >
+                      <mat-option *ngFor="let r of allRegistre" value="{{ r.id }}" name="anneeRegistre" >{{ r.annee }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div class="col-md-5 offset-2">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Numéro régistre</mat-label>
+                    <input name="numActe" matInput [(ngModel)]="newNaissance.numActe" value="{{numActe}}"  >
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Prénom(s)</mat-label>
+                    <input name="prenom" matInput [(ngModel)]="newNaissance.declare.prenom" type="text" placeholder="prénom" >
+                  </mat-form-field>
+              </div>
+              <div class="row">
+                <div class="col-md-5 ">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Nom</mat-label>
+                    <input name="nom" matInput [(ngModel)]="newNaissance.declare.nom" type="text" placeholder="nom" >
+                  </mat-form-field>
+                </div>
+                <div class="col-md-5 offset-2">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Date de naissance</mat-label>
+                    <input name="dateNaissance" [(ngModel)]="newNaissance.declare.dateNaissance" matInput type="date">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Lieu de naissance </mat-label>
+                    <input name="lieuNaissance" [(ngModel)]="newNaissance.declare.lieuNaissance" matInput type="text" placeholder="Lieu de naissance" >
+                  </mat-form-field>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <span style="border-left: 2px solid #000; display: inline-block;height: 100%; margin-left: 50px"></span>
+            </div>
+            <div class="col-md-5">
+              <div class="row">
+                <div class="col-md-5">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Type de déclaration</mat-label>
+                    <mat-select placeholder="type" [(ngModel)]="newNaissance.typeDeclaration" onchange="jmt(this.value);">
+                      <mat-option (click)="nrmFunction()" value="normale">Normale</mat-option>
+                      <mat-option (click)="tarFunction()" value="Tardive">Tardive</mat-option>
+                      <mat-option  (click)="jmtFunction()" value="jugement" >Jugement</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-5">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Heure de naissance</mat-label>
+                    <input name="heureNaissance" [(ngModel)]="newNaissance.declare.heureNaissance" matInput type="time">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="" id="dataJugement" *ngIf="typeDec">
+                  <mat-card>
+                    <mat-card-header class="bg-gradient-primary h5 text-white">Informations du jugement</mat-card-header>
+                    <mat-card-content>
+                      <div class="row">
+                        <div class="col-md-5">
+                          <mat-form-field appearance="outline">
+                            <mat-label>Numéro de jugement</mat-label>
+                            <input name="numJugement" matInput type="number" [(ngModel)]="newNaissance.jugement.numJugement">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-5">
+                          <mat-form-field appearance="outline">
+                            <mat-label>Date de jugement</mat-label>
+                            <input name="dateJugement"  matInput type="date" [(ngModel)]="newNaissance.jugement.dateJugement">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-10">
+                          <mat-form-field appearance="outline">
+                            <mat-label>Lieu du jugement</mat-label>
+                            <input name="lieuJugement" matInput type="text" [(ngModel)]="newNaissance.jugement.lieuJugement">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </mat-card-content>
+                  </mat-card>
+              </div>
+              <div class="row mt-3">
+                <mat-form-field appearance="outline">
+                  <mat-label>Date de déclaration</mat-label>
+                  <input name="dateDec" [(ngModel)]="newNaissance.dateDeclaration" matInput type="date">
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <div class="col-md-5">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Centre</mat-label>
+                    <mat-select placeholder="type">
+                      <mat-option *ngFor="let c of allCentre" value="{{c.id}}">{{c.codeCentre}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-5">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Formation sanitaire</mat-label>
+                    <mat-select placeholder="type" [(ngModel)]="newNaissance.formaSanitaire.id">
+                      <mat-option *ngFor="let fs of allFormaSani" value="{{fs.id}}">{{fs.libelle}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <mat-label class="mb-3 m-lg-1">Sexe</mat-label>
+                <mat-radio-group name="sexe" [(ngModel)]="newNaissance.declare.sexe" aria-label="Select an option">
+                  <mat-radio-button  value="H">Homme</mat-radio-button>
+                  <mat-radio-button value="F">Femme</mat-radio-button>
+                </mat-radio-group>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+</div>
+
+
+<div class="container-fluid mt-1">
+  <div class="card">
+    <mat-stepper>
+      <mat-step>
+        <div class="card-body">
+          <ng-template matStepLabel>Père</ng-template>
+          <mat-card-content>
+            <div class="mt-3">
+              <h3>Informations sur le père</h3>
+                      <span>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Prénom(s)</mat-label>
+                          <input matInput name="prenomPere" [(ngModel)]="newNaissance.pere.prenom">
+                        </mat-form-field>
+                      </span>
+              <span class="m-lg-4">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Nom</mat-label>
+                          <input matInput name="nomPere" [(ngModel)]="newNaissance.pere.nom">
+                        </mat-form-field>
+                      </span>
+              <span>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Date de naissance</mat-label>
+                          <input matInput type="date" name="dateNaissPere" [(ngModel)]="newNaissance.pere.dateNaissance">
+                        </mat-form-field>
+                      </span>
+              <span class="m-lg-4">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Lieu de naissance</mat-label>
+                          <input matInput name="lieuNaissPere" [(ngModel)]="newNaissance.pere.lieuNaissance">
+                        </mat-form-field>
+                      </span>
+              <span>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Numéro CNI</mat-label>
+                          <input matInput type="number" name="cniPere" [(ngModel)]="newNaissance.pere.CNI">
+                        </mat-form-field>
+                      </span>
+            </div>
+          </mat-card-content>
+          <button class="btn btn-info mt-4"  mat-button matStepperNext>Suivant</button>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Mère</ng-template>
+        <div class="mt-3">
+          <h3>Informations sur la mère</h3>
+                      <span>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Prénom(s)</mat-label>
+                          <input matInput name="prenomMere" [(ngModel)]="newNaissance.mere.prenom">
+                        </mat-form-field>
+                      </span>
+          <span class="m-lg-4">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Nom</mat-label>
+                          <input matInput name="nomMere" [(ngModel)]="newNaissance.mere.nom">
+                        </mat-form-field>
+                      </span>
+          <span>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Date de naissance</mat-label>
+                          <input matInput type="date" name="dateNaissMere" [(ngModel)]="newNaissance.mere.dateNaissance">
+                        </mat-form-field>
+                      </span>
+          <span class="m-lg-4">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Lieu de naissance</mat-label>
+                          <input matInput type="text" name="lieuNaissMere" [(ngModel)]="newNaissance.mere.lieuNaissance">
+                        </mat-form-field>
+                      </span>
+          <span>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Numéro CNI</mat-label>
+                          <input matInput type="number" name="cniMere" [(ngModel)]="newNaissance.mere.CNI">
+                        </mat-form-field>
+                      </span>
+        </div>
+        <button class="btn btn-primary" style="margin-top: 3%"  mat-button matStepperPrevious>Precédent</button>
+        <button class="btn btn-info" style="margin-left: 2px; margin-top: 3%" mat-button matStepperNext>Suivant</button>
+
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Déclarant</ng-template>
+        <div class="mt-3">
+          <h3>Informations sur le déclarant</h3>
+                      <span>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Prénom(s)</mat-label>
+                          <input matInput name="prenomDec" [(ngModel)]="newNaissance.declarant.prenom">
+                        </mat-form-field>
+                      </span>
+          <span class="m-lg-4">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Nom</mat-label>
+                          <input matInput type="text" name="nomDec" [(ngModel)]="newNaissance.declarant.nom">
+                        </mat-form-field>
+                      </span>
+          <span>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Date de naissance</mat-label>
+                          <input matInput type="date" name="dateNaissDec" [(ngModel)]="newNaissance.declarant.dateNaissance">
+                        </mat-form-field>
+                      </span>
+          <span class="m-lg-4">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Lieu de naissance</mat-label>
+                          <input matInput type="text" name="lieuNaissDec" [(ngModel)]="newNaissance.declarant.lieuNaissance">
+                        </mat-form-field>
+                      </span>
+          <span>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Numéro CNI</mat-label>
+                          <input matInput type="number" [(ngModel)]="newNaissance.declarant.CNI">
+                        </mat-form-field>
+                      </span>
+          <span>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Degres parental</mat-label>
+                          <input matInput type="text" [(ngModel)]="newNaissance.declarant.degreParental">
+                        </mat-form-field>
+                      </span>
+        </div>
+        <button class="btn btn-primary" style="margin-top: 3% " mat-button matStepperPrevious>Precédent</button>
+        <button (click)="add()" class="btn btn-success" style="margin-left: 2px; margin-top: 3% ">Valider</button>
+      </mat-step>
+    </mat-stepper>
+  </div>
+</div>
